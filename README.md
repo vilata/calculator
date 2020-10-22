@@ -4,11 +4,15 @@ http://SERVER:9095/swagger-ui.html
 
 #### STEPS FOR COMPILE DEMO CALCULATOR
 
-- mvn clean install (clean and compile project)
+- mvn clean install (clean and compile project generate /calculator/target/calculator-0.0.1-SNAPSHOT.jar)
 
 #### EJECUTE DEMO CALCULATOR
 
 - mvn spring-boot:run (path to the project)
+
+#### DEPLOY IN SERVER
+
+- Deploy calculator-0.0.1-SNAPSHOT.jar
 
 #### PARAMETERS FOR API DEMO CALCULATOR
 
