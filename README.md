@@ -28,3 +28,7 @@ http://SERVER:9095/swagger-ui.html
 ### SAMPLE OPERATION DEMO CALCULATOR
 
 * http://localhost:9095/resultOperation?operator=%2B&parameter1=2&parameter2=2
+
+### TRACE RESULT OPERATION DEMO CALCULATOR
+
+Show result operation in console : "Result operation: "  
