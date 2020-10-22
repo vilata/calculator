@@ -21,7 +21,7 @@ http://SERVER:9095/swagger-ui.html
 - 9095
   * src/main/resources/application.properties 
 
-### EXTERNAL LIBRERIES DEMO CALCULATOR
+#### EXTERNAL LIBRERIES DEMO CALCULATOR
 
 - lib/tracer-1.0.0.jar, tracer-1.0.0-javadoc.jar, tracer-1.0.0-sources.jar
 
