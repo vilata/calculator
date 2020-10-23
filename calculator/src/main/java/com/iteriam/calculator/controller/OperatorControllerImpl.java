@@ -22,7 +22,7 @@ public class OperatorControllerImpl implements OperatorController{
 	@Override
 	public ResponseEntity<BigDecimal> getResultOperator(BigDecimal parameter1, BigDecimal parameter2, String operator) {
 
-		double calculateResult = operatorService.calculateResult(parameter1, parameter2, operator);
+		BigDecimal calculateResult = operatorService.calculateResult(parameter1, parameter2, operator);
 		tracer.trace("Result operation: " +calculateResult);
 		return new ResponseEntity(calculateResult,HttpStatus.OK);
 	}

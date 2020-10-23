@@ -1,6 +1,7 @@
 package com.iteriam.calculator.service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +13,11 @@ import com.iteriam.calculator.model.SymbolOperation;
 public class OperatorServiceImpl implements OperatorService{
 	
 	private static final Logger log = LoggerFactory.getLogger(OperatorServiceImpl.class);
+	//Number from the ',' in operation divide 
+	private static final int NUMBER_PRECISION = 2;
 	
 	@Override
-	public double calculateResult(BigDecimal parameter1, BigDecimal parameter2, String symbol) {
+	public BigDecimal calculateResult(BigDecimal parameter1, BigDecimal parameter2, String symbol) {
 
 		if(log.isDebugEnabled()) {
 			log.debug("Parameter1 : " + parameter1+ " Parameter2 : " + " Symbol operation : " + symbol);
@@ -23,18 +26,17 @@ public class OperatorServiceImpl implements OperatorService{
 		
 			switch (so) {
 			case SUM:
-				return parameter1.add(parameter2).doubleValue();
+				return parameter1.add(parameter2);
 			case SUBSTRACT:
-				return parameter1.subtract(parameter2).doubleValue();	
+				return parameter1.subtract(parameter2);	
 			case MULTIPLY:
-				return parameter1.multiply(parameter2).doubleValue();
+				return parameter1.multiply(parameter2);
 			case DIVIDE:
-				return parameter1.divide(parameter2).doubleValue();
+				return parameter1.divide(parameter2, NUMBER_PRECISION, RoundingMode.FLOOR);
 			default:
 				throw new RuntimeException("Not found Operation");
 			}
 		
 	}
 	
-
 }

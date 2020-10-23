@@ -1,6 +1,7 @@
 package com.iteriam.calculator;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,8 +26,8 @@ class CalculatorApplicationTests {
 		BigDecimal parameter1 = new BigDecimal(1);
 		BigDecimal parameter2 = new BigDecimal(3);
 		String symbol = "+";
-		double result = operatorService.calculateResult(parameter1, parameter2, symbol);
-		Assertions.assertEquals(4, result);
+		BigDecimal result = operatorService.calculateResult(parameter1, parameter2, symbol);
+		Assertions.assertEquals(new BigDecimal(4), result);
 	}
 	
 	@Test
@@ -34,8 +35,8 @@ class CalculatorApplicationTests {
 		BigDecimal parameter1 = new BigDecimal(4);
 		BigDecimal parameter2 = new BigDecimal(2);
 		String symbol = "-";
-		double result = operatorService.calculateResult(parameter1, parameter2, symbol);
-		Assertions.assertEquals(2, result);
+		BigDecimal result = operatorService.calculateResult(parameter1, parameter2, symbol);
+		Assertions.assertEquals(new BigDecimal(2), result);
 	}
 	
 	@Test
@@ -43,17 +44,17 @@ class CalculatorApplicationTests {
 		BigDecimal parameter1 = new BigDecimal(4);
 		BigDecimal parameter2 = new BigDecimal(2);
 		String symbol = "*";
-		double result = operatorService.calculateResult(parameter1, parameter2, symbol);
-		Assertions.assertEquals(8, result);
+		BigDecimal result = operatorService.calculateResult(parameter1, parameter2, symbol);
+		Assertions.assertEquals(new BigDecimal(8), result);
 	}
 	
 	@Test
 	public void divideOperation() {
-		BigDecimal parameter1 = new BigDecimal(8);
+		BigDecimal parameter1 = new BigDecimal(4);
 		BigDecimal parameter2 = new BigDecimal(2);
 		String symbol = "/";
-		double result = operatorService.calculateResult(parameter1, parameter2, symbol);
-		Assertions.assertEquals(4, result);
+		BigDecimal result = operatorService.calculateResult(parameter1, parameter2, symbol);
+		Assertions.assertEquals(new BigDecimal(2).setScale(2, RoundingMode.FLOOR), result);
 	}
 
 }
