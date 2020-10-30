@@ -1,5 +1,7 @@
 package com.iteriam.calculator.model;
 
+import com.iteriam.calculator.exception.ServiceException;
+
 public enum SymbolOperation {
 	
 	SUM("+"),SUBSTRACT("-"),MULTIPLY("*"),DIVIDE("/");
@@ -27,7 +29,7 @@ public enum SymbolOperation {
 				return so;
 			}
 		}
-		throw new RuntimeException("Operator not found : " + symbol );
+		throw new ServiceException("Operator not found : " + symbol );
 	}
 	
 	

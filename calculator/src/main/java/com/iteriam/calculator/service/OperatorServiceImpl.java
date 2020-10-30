@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.iteriam.calculator.exception.ServiceException;
 import com.iteriam.calculator.model.SymbolOperation;
 
 @Service
@@ -34,7 +35,7 @@ public class OperatorServiceImpl implements OperatorService{
 			case DIVIDE:
 				return parameter1.divide(parameter2, NUMBER_PRECISION, RoundingMode.FLOOR);
 			default:
-				throw new RuntimeException("Not found Operation");
+				throw new ServiceException("Not found Operation");
 			}
 		
 	}
