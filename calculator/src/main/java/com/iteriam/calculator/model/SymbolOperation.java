@@ -1,6 +1,6 @@
 package com.iteriam.calculator.model;
 
-import com.iteriam.calculator.exception.ServiceException;
+import com.iteriam.calculator.exception.BadRequestException;
 
 public enum SymbolOperation {
 	
@@ -29,7 +29,7 @@ public enum SymbolOperation {
 				return so;
 			}
 		}
-		throw new ServiceException("Operator not found : " + symbol );
+		throw new BadRequestException("Operator not found : " + symbol );
 	}
 	
 	

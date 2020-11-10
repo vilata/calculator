@@ -7,16 +7,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.iteriam.calculator.exception.ServiceException;
+import com.iteriam.calculator.exception.BadRequestException;
 import com.iteriam.calculator.model.SymbolOperation;
 
 @Service
 public class OperatorServiceImpl implements OperatorService{
 	
 	private static final Logger log = LoggerFactory.getLogger(OperatorServiceImpl.class);
-	//Number from the ',' in operation divide 
+	/**
+	 *NUMBER_PRECISION : Number from the ',' in operation divide
+	 */	
 	private static final int NUMBER_PRECISION = 2;
 	
+	/**
+	 * Method for calculate value to parameter1 , parameter2 with symbol pass
+	 * @param BigDecimal parameter1, BigDecimal parameter2, String symbol
+	 * @return BigDecimal
+	 */
 	@Override
 	public BigDecimal calculateResult(BigDecimal parameter1, BigDecimal parameter2, String symbol) {
 
@@ -35,7 +42,7 @@ public class OperatorServiceImpl implements OperatorService{
 			case DIVIDE:
 				return parameter1.divide(parameter2, NUMBER_PRECISION, RoundingMode.FLOOR);
 			default:
-				throw new ServiceException("Not found Operation");
+				throw new BadRequestException("Not found Operation");
 			}
 		
 	}
